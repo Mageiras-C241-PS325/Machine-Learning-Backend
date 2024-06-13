@@ -1,0 +1,70 @@
+item {
+    name: "22",
+    id: 1,
+    display_name: "22"
+}
+item {
+    name: "pig",
+    id: 2,
+    display_name: "pig"
+}
+item {
+    name: "garlic",
+    id: 3,
+    display_name: "garlic"
+}
+item {
+    name: "calamansi",
+    id: 4,
+    display_name: "calamansi"
+}
+item {
+    name: "tomato",
+    id: 5,
+    display_name: "tomato"
+}
+item {
+    name: "bell pepper",
+    id: 6,
+    display_name: "bell pepper"
+}
+item {
+    name: "carrot",
+    id: 7,
+    display_name: "carrot"
+}
+item {
+    name: "ginger",
+    id: 8,
+    display_name: "ginger"
+}
+item {
+    name: "chicken",
+    id: 9,
+    display_name: "chicken"
+}
+item {
+    name: "potato",
+    id: 10,
+    display_name: "potato"
+}
+item {
+    name: "cucumber",
+    id: 11,
+    display_name: "cucumber"
+}
+item {
+    name: "onion",
+    id: 12,
+    display_name: "onion"
+}
+item {
+    name: "chili",
+    id: 13,
+    display_name: "chili"
+}
+item {
+    name: "long chili",
+    id: 14,
+    display_name: "long chili"
+}
