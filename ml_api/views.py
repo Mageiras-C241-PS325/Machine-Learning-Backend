@@ -7,12 +7,14 @@ from django.http import HttpResponse, JsonResponse
 import tensorflow as tf
 
 # Create your views here.
-@api_view(["GET"])
-def ping(request):
+@api_view(["POST"])
+def predict(request):
     model = MlApiConfig.model
-    # Get model's input shape
-    random_tensor = tf.random.normal([1, 640, 640, 3])
-    # Make a prediction
-    prediction = model.predict(random_tensor)
-    print(prediction)
+    file = request.data['file']
+    # Convert to tensor
+    tensor = tf.image.decode_image(file.read())
+    # Resize the image
+    tensor = tf.image.resize(tensor, [640, 640])
+    prediction = model.predict(tensor)
+    
     return HttpResponse(prediction['classes'])
