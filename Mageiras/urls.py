@@ -20,5 +20,5 @@ from django.urls import path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("ml_api/", views.ping)
+    path("ml_api/", views.predict)
 ]
