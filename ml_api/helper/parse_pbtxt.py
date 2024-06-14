@@ -26,3 +26,8 @@ def parse_pbtxt(pbtxt_content):
             label_map.append(item_dict)
 
     return label_map
+
+def parse_pbtxt_file(file_path):
+    with open(file_path, 'r') as file:
+        pbtxt_content = file.read()
+    return parse_pbtxt(pbtxt_content)
