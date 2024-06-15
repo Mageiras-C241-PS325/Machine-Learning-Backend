@@ -29,3 +29,21 @@ def predict(request):
     mapped_classes = [class_mapping[class_num] for class_num in prediction if class_num in class_mapping.keys()]
     mapped_classes = ";".join(mapped_classes) if mapped_classes else "No prediction"
     return HttpResponse(mapped_classes)
+
+@api_view(["POST"])
+def predict_image(request):
+    if 'file' not in request.FILES:
+        return JsonResponse({'error': 'No image uploaded'}, status=400)
+    
+    file = request.FILES["file"]
+    model = MlApiConfig.model
+    tensor = tf.image.decode_image(file)
+    tensor = tf.image.resize(tensor, [640, 640])
+    tensor = tf.expand_dims(tensor, 0)
+
+    prediction = list(model.predict(tensor)['classes'][0])
+    class_mapping = MlApiConfig.class_mapping
+    mapped_classes = [class_mapping[class_num] for class_num in prediction if class_num in class_mapping.keys()]
+    mapped_classes = ";".join(mapped_classes) if mapped_classes else "No prediction"
+
+    return JsonResponse({"prediction": mapped_classes})

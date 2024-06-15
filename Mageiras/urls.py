@@ -20,5 +20,6 @@ from django.urls import path
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("ml_api/", views.predict)
+    path("ml_api/", views.predict),
+    path("ml_api/predict_image", views.predict_image, name="predict_image")
 ]
